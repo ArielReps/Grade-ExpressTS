@@ -98,6 +98,10 @@ export const GetAllStudentsAndGrades = async(req:Request,res:Response):Promise<v
 {
     try{
     
+        if(!req.user.isAdmin) // if he is not admin don't give him anything, remove this block and it will give only himself
+        {
+            res.status(200).json({success:false, auth:false, user:req.user,content:"You have no access if you aren't admin"})
+        }
    const students:IStudent[] = await GetAllStudentPlusGradesByUser(req.students);
     const response:DTO={
         content: students,

@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
 import studentRoutes from './routes/studentRoutes';
+import gradeRoutes from './routes/gradeRoutes'
 import cookieParser from 'cookie-parser';
 import { AuthUserByToken } from './utils/auth';
 dotenv.config();  // Load environment variables
@@ -15,9 +16,8 @@ app.use(express.json());
 
 // Routes
 app.use('/users', userRoutes);
-
 app.use('/students', studentRoutes);
-
+app.use('/grades',gradeRoutes)
 // MongoDB Connection
 const connectDB = async () => {
   try {

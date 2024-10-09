@@ -9,8 +9,6 @@ const auth_1 = require("../utils/auth");
 const router = express_1.default.Router();
 router.use(auth_1.AuthUserByToken);
 router.use(auth_1.GetStudentsByAuth);
-router.route('/:id/grades').post(StudentController_1.AddGradeToStudentById);
-router.route('/').get(StudentController_1.GetAllStudentsAndGrades);
-router.route('/Avarage').get(StudentController_1.GetAvarage);
+router.route('/:gradeId').put(StudentController_1.UpdateGradeByGradeId);
 exports.default = router;
-//# sourceMappingURL=studentRoutes.js.map
+//# sourceMappingURL=gradeRoutes.js.map

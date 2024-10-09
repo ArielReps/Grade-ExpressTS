@@ -5,8 +5,7 @@ import { AuthUserByToken, GetStudentsByAuth } from '../utils/auth';
 const router = express.Router();
 router.use(AuthUserByToken)
 router.use(GetStudentsByAuth)
-router.route('/:id/AddGrade').post(AddGradeToStudentById)
-router.route('/GetAllStudents').get(GetAllStudentsAndGrades)
-router.route('/:gradeId/UpdateGrade').put(UpdateGradeByGradeId)
-router.route('/GetAvarage').get(GetAvarage)
+router.route('/:id/grades').post(AddGradeToStudentById)
+router.route('/').get(GetAllStudentsAndGrades)
+router.route('/Avarage').get(GetAvarage)
 export default router;

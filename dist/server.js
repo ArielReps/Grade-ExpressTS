@@ -17,6 +17,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const studentRoutes_1 = __importDefault(require("./routes/studentRoutes"));
+const gradeRoutes_1 = __importDefault(require("./routes/gradeRoutes"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 dotenv_1.default.config(); // Load environment variables
 const app = (0, express_1.default)();
@@ -26,6 +27,7 @@ app.use(express_1.default.json());
 // Routes
 app.use('/users', userRoutes_1.default);
 app.use('/students', studentRoutes_1.default);
+app.use('/grades', gradeRoutes_1.default);
 // MongoDB Connection
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {

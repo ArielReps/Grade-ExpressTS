@@ -103,6 +103,10 @@ const UpdateGradeByGradeId = (req, res) => //req.body: {content: newGrade:{point
 exports.UpdateGradeByGradeId = UpdateGradeByGradeId;
 const GetAllStudentsAndGrades = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        if (!req.user.isAdmin) // if he is not admin don't give him anything, remove this block and it will give only himself
+         {
+            res.status(200).json({ success: false, auth: false, user: req.user, content: "You have no access if you aren't admin" });
+        }
         const students = yield GetAllStudentPlusGradesByUser(req.students);
         const response = {
             content: students,
